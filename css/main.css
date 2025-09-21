@@ -29,37 +29,59 @@ body {
   z-index: 1;
   font-weight: bold;
   letter-spacing: 4px;
+  text-align: center;
 }
+
+.titulo {
+  margin-bottom: 180px; 
+  top: 75%; 
+  font-family: "Arial Narrow", Arial, sans-serif; 
+  color: white; 
+  position: absolute; 
+  font-weight: bold; 
+  letter-spacing: 10px; 
+  opacity: 0; 
+  animation: fadeIn 3s ease-in-out forwards; 
+  text-align: center;
+  font-size: 2em; /* Tamaño base para el título en pantallas grandes */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* --- Media Queries para dispositivos móviles --- */
+
 @media only screen and (max-width: 600px) {
-  /* Estilos específicos para dispositivos con un ancho máximo de 600px */
   #lyrics {
-      font-size: 14px; /* Reduce el tamaño del texto para dispositivos más pequeños */
-      margin-bottom: 530px;
-      letter-spacing: 3px;
+    font-size: 14px;
+    margin-bottom: 55vh; /* Ajustado a porcentaje de la altura de la ventana */
+    letter-spacing: 3px;
   }
 
-}
   .titulo {
-    margin-bottom: 180px; 
-    top: 75%; 
-    font-family: "Arial Narrow", Arial, sans-serif; 
-    color: white; 
-    position: absolute; 
-    font-weight: bold; 
-    letter-spacing: 10px; 
-    opacity: 0; 
-    animation: fadeIn 3s ease-in-out forwards; 
-    text-align: center;
+    font-size: 1.2em; /* Reducir el tamaño del título en móviles */
+    margin-bottom: 20vh; /* Ajustar la posición vertical del título */
+    letter-spacing: 2px;
   }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  
+  .flowers {
+    transform: scale(0.6); /* Reducir el tamaño de las flores para que quepan */
+    margin-bottom: 15vh; /* Ajustar la posición vertical de las flores */
   }
 
+  /* También podrías necesitar ajustar el tamaño de los elementos dentro de las flores */
+  .flower__line {
+    height: 40vmin;
+  }
+}
+
+/* --- Resto del código original (sin cambios) --- */
 .night {
   z-index: -1;
   position: absolute;
@@ -106,19 +128,6 @@ body {
 .flowers {
   position: relative;
   transform: scale(0.9);
-  /*margin-bottom: 100px;
-  */
-}
-
-@media only screen and (max-width: 600px) {
-  /* Estilos específicos para dispositivos con un ancho máximo de 600px */
-.flowers {
-      font-size: 14px;
-      margin-bottom: 35%;
-      letter-spacing: 3px;
-      transform: scale(1.0);
-}
-
 }
 
 .flower {
@@ -128,6 +137,7 @@ body {
   z-index: 10;
   --fl-speed: 0.8s;
 }
+
 .flower--1 {
   -webkit-animation: moving-flower-1 4s linear infinite;
   animation: moving-flower-1 4s linear infinite;
